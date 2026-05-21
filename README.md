@@ -1,14 +1,12 @@
 # log-redactor
 
-[![CI](https://github.com/ORG/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/ORG/REPO/actions/workflows/ci.yml)
+[![CI](https://github.com/morgan-young/log-redactor/actions/workflows/ci.yml/badge.svg)](https://github.com/morgan-young/log-redactor/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/log-redactor.svg)](https://pypi.org/project/log-redactor/)
 [![Python](https://img.shields.io/pypi/pyversions/log-redactor.svg)](https://pypi.org/project/log-redactor/)
-[![License](https://img.shields.io/pypi/l/log-redactor.svg)](https://github.com/ORG/REPO/blob/main/LICENSE)
+[![License](https://img.shields.io/pypi/l/log-redactor.svg)](https://github.com/morgan-young/log-redactor/blob/main/LICENSE)
 
 Small, dependency-free redaction helpers for Python logs and payloads.  
 `log-redactor` helps prevent accidental exposure of secrets in log messages, strings, and nested dictionaries.
-
-> Replace `ORG/REPO` in badge URLs once the repository is published.
 
 ## Why use it?
 
