@@ -3,13 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "log-redactor"
+name = "python-log-redactor"
 version = "0.1.0"
 description = "Lightweight sensitive data redaction for accidental printing of sensitive Python strings, dicts, and logs."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Open Source Contributors" }]
+authors = [{ name = "Morgan Young" }]
 keywords = ["logging", "security", "redaction", "privacy"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -26,7 +26,7 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/example/log-redactor"
+Homepage = "https://github.com/morgan-young/python-log-redactor"
 
 [tool.pytest.ini_options]
 addopts = "-q"

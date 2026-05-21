@@ -1,9 +1,9 @@
 # log-redactor
 
 [![CI](https://github.com/morgan-young/log-redactor/actions/workflows/ci.yml/badge.svg)](https://github.com/morgan-young/log-redactor/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/log-redactor.svg)](https://pypi.org/project/log-redactor/)
-[![Python](https://img.shields.io/pypi/pyversions/log-redactor.svg)](https://pypi.org/project/log-redactor/)
-[![License](https://img.shields.io/pypi/l/log-redactor.svg)](https://github.com/morgan-young/log-redactor/blob/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/python-log-redactor.svg)](https://pypi.org/project/python-log-redactor/)
+[![Python](https://img.shields.io/pypi/pyversions/python-log-redactor.svg)](https://pypi.org/project/python-log-redactor/)
+[![License](https://img.shields.io/pypi/l/python-log-redactor.svg)](https://github.com/morgan-young/log-redactor/blob/main/LICENSE)
 
 Small, dependency-free redaction helpers for Python logs and payloads.  
 `log-redactor` helps prevent accidental exposure of secrets in log messages, strings, and nested dictionaries.
@@ -18,7 +18,7 @@ Small, dependency-free redaction helpers for Python logs and payloads.
 ## Installation
 
 ```bash
-pip install log-redactor
+pip install python-log-redactor
 ```
 
 ## Quick start
