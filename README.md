@@ -1,16 +1,17 @@
-# log-redactor
+# Log Redactor
 
 [![CI](https://github.com/morgan-young/log-redactor/actions/workflows/ci.yml/badge.svg)](https://github.com/morgan-young/log-redactor/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/python-log-redactor.svg)](https://pypi.org/project/python-log-redactor/)
 [![Python](https://img.shields.io/pypi/pyversions/python-log-redactor.svg)](https://pypi.org/project/python-log-redactor/)
 [![License](https://img.shields.io/pypi/l/python-log-redactor.svg)](https://github.com/morgan-young/log-redactor/blob/main/LICENSE)
 
-Small, dependency-free redaction helpers for Python logs and payloads.  
-`log-redactor` helps prevent accidental exposure of secrets in log messages, strings, and nested dictionaries.
+This is a small, dependency-free redaction helper for Python logs and payloads that helps prevent accidental exposure of secrets and other things you wouldn't want to persist on a server somewhere (email addresses, etc.) in log messages and anything else that gets printed out. Of course, you may be thinking we should never log this stuff anyway, but there are some instances where things are okay when working locally but not okay when working with real infra, which means things that shouldn't get logged, do get logged, by mistake. This aims to stop that.
+
+It works with both the official python logger and with print statements.
 
 ## Why use it?
 
-- Redacts by **key name** and **regex pattern value matching**
+- Redacts by key name and regex for common secrets/sensitive information.
 - Supports nested `dict` / `list` / `tuple` structures
 - Works with standard library `logging` and `%s`-style args
 - Keeps runtime dependencies at zero (stdlib only)
@@ -43,17 +44,8 @@ payload = {
 print(redact_dict(payload))
 ```
 
-## API
-
-```python
-from log_redactor import RedactingFilter, redact, redact_dict
-```
-
-- `redact(text: str, patterns=None, custom_patterns=None, replacement="[REDACTED]") -> str`
-- `redact_dict(data: dict, keys=None, patterns=None, custom_patterns=None, replacement="[REDACTED]") -> dict`
-- `RedactingFilter(logging.Filter)`
-
 ## Built-in patterns
+These all have regex patterns that try to identify these values and redact them.
 
 - `email`
 - `ipv4`
@@ -64,6 +56,7 @@ from log_redactor import RedactingFilter, redact, redact_dict
 - `credit_card_basic`
 
 ## Built-in sensitive keys
+The value of these keys will be redacted automatically if the presence of these keys are detected.
 
 - `password`
 - `passwd`
@@ -75,6 +68,7 @@ from log_redactor import RedactingFilter, redact, redact_dict
 - `authorization`
 
 ## Development
+tbc here as well as a contributing section.
 
 ```bash
 python3 -m venv .venv
@@ -86,9 +80,10 @@ ruff check .
 
 ## Security note
 
-This package is intended to reduce accidental leakage, not guarantee perfect anonymization.
-Always validate your own threat model and pattern coverage for production systems.
+This package is intended to reduce accidental leakage, not guarantee perfect anonymisation. You should not be printing secrets to logs on real infrastructure *regardless*. If you do, this is just a failsafe to try and ensure that it is captured and redacted, but it may not always be successful. The primary use case is combatting forgetfulness when moving from local to real infra.
+
+Don't be stupid. Do not log secrets on real infra.
 
 ## License
 
-MIT
+This package is distributed under an MIT license.
